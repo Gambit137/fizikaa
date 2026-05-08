@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETŠ Generator Grafova</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>ETŠ Generator Grafova</h1>
+        </header>
+
+        <main class="main-layout">
+            <aside class="sidebar">
+                <div class="control-panel">
+                    <div class="form-group">
+                        <label for="process-select">Fizikalno područje</label>
+                        <select id="process-select" class="select-input">
+                            <option value="kinematics">Kinematika (Gibanje)</option>
+                            <option value="thermodynamics">Termodinamika (Plinovi)</option>
+                        </select>
+                    </div>
+
+                    <div id="kinematics-controls">
+                        <div class="form-group">
+                            <label for="motion-select">Vrsta gibanja</label>
+                            <select id="motion-select" class="select-input">
+                                <option value="uniform">Jednoliko pravocrtno</option>
+                                <option value="accelerated">Jednoliko ubrzano</option>
+                                <option value="decelerated">Jednoliko usporeno</option>
+                                <option value="combined">Kombinirano</option>
+                            </select>
+                        </div>
+
+                        <div class="params-container">
+                            <div id="param-initial-velocity" class="param-group">
+                                <label for="v0">Početna brzina (m/s)</label>
+                                <input type="number" id="v0" value="0" class="number-input">
+                            </div>
+                            <div id="param-velocity" class="param-group">
+                                <label for="v">Brzina (m/s)</label>
+                                <input type="number" id="v" value="5" class="number-input">
+                            </div>
+                            <div id="param-acceleration" class="param-group">
+                                <label for="a">Ubrzanje (m/s²)</label>
+                                <input type="number" id="a" value="2" class="number-input">
+                            </div>
+                            <div id="param-duration" class="param-group">
+                                <label for="t">Trajanje (s)</label>
+                                <input type="number" id="t" value="10" class="number-input">
+                            </div>
+                        </div>
+
+                        <div id="combined-motion-params">
+                            <h4>Segmenti gibanja</h4>
+                            <div id="segments-container">
+                            </div>
+                            <button id="add-segment-btn" class="add-segment-button">Dodaj Segment</button>
+                        </div>
+                    </div>
+
+                    <div id="thermodynamics-controls" style="display: none;">
+                        <div class="form-group">
+                            <label for="thermo-select">Vrsta promjene</label>
+                            <select id="thermo-select" class="select-input">
+                                <option value="isothermal">Izotermna (T=konst.)</option>
+                                <option value="isobaric">Izobarna (p=konst.)</option>
+                                <option value="isochoric">Izohorna (V=konst.)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="generate-btn" class="generate-button">
+                        Generiraj Grafove
+                    </button>
+                </div>
+            </aside>
+
+            <section class="graphs-grid">
+                <div class="graph-card">
+                    <div class="graph-header">
+                        <h3 id="graph1-title" class="graph-title">s/t graf</h3>
+                        <button class="download-btn" data-graph="graph1">Preuzmi</button>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="graph1"></canvas>
+                    </div>
+                </div>
+                <div class="graph-card">
+                    <div class="graph-header">
+                        <h3 id="graph2-title" class="graph-title">v/t graf</h3>
+                        <button class="download-btn" data-graph="graph2">Preuzmi</button>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="graph2"></canvas>
+                    </div>
+                </div>
+                <div class="graph-card">
+                    <div class="graph-header">
+                        <h3 id="graph3-title" class="graph-title">a/t graf</h3>
+                        <button class="download-btn" data-graph="graph3">Preuzmi</button>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="graph3"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Emanuel Lipovac - Elektrotehnicka škola</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
