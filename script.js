@@ -94,10 +94,6 @@ function activateProfEasterEgg() {
     
     const easterEgg = document.createElement('div');
     easterEgg.className = 'prof-easter-egg';
-    easterEgg.innerHTML = `
-        <div class="message">Najjači profesor u cijeloj školi!</div>
-        <img src="https://media1.tenor.com/m/vxU1ATG8Jo0AAAAC/champagne-cheers.gif" alt="Cheers">
-    `;
     document.body.appendChild(easterEgg);
     
     setTimeout(() => {
