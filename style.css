@@ -71,18 +71,6 @@ body {
     gap: 0.3rem;
 }
 
-.header h1::after {
-    content: 'made by Prof. Emanuel';
-    font-size: 0.35em;
-    font-weight: 300;
-    opacity: 0.6;
-    font-style: italic;
-    letter-spacing: 0.5px;
-    transform: skewX(-8deg);
-    display: block;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-}
 
 .header h1::after:hover {
     opacity: 0.9;
